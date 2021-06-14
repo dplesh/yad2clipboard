@@ -86,11 +86,19 @@ class Yad2Post:
         except:
             print ("Phone number unavailable.")
 
-    def __str__(this):
+    def format_post_string(this, template):       
         amneties_string = ', '.join(this.amneties)
         details = '\r\n'.join(this.details_list)
-        message_template = "{title}, {neighborhood} {city}\r\n{rooms}חדרים , {floor} קומה , {area} מ\"ר\r\n{details}\r\n{price}\r\n{description}\r\n{amneties}\r\n{contactName} - {contact_number}\r\n{url}"
-        formattedMessage = message_template.format(title=this.title, city=this.city,neighborhood=this.neighborhood,rooms=this.rooms,floor=this.floor,area=this.area,price=this.price,description=this.description,contactName=this.contact_name,contact_number=this.contact_number,url=this.url,amneties=amneties_string,details=details)
+        formattedMessage = template.format(title=this.title, city=this.city,neighborhood=this.neighborhood,rooms=this.rooms,floor=this.floor,area=this.area,price=this.price,description=this.description,contactName=this.contact_name,contact_number=this.contact_number,url=this.url,amneties_list=amneties_string,details_list=details)
         return formattedMessage
+
+
+    def __str__(this):    
+        template = "{title}, {neighborhood} {city}\r\n{rooms}חדרים , {floor} קומה , {area} מ\"ר\r\n{details_list}\r\n{price}\r\n{description}\r\n{amneties_list}\r\n{contactName} - {contact_number}\r\n{url}"
+        amneties_string = ', '.join(this.amneties)
+        details = '\r\n'.join(this.details_list)
+        formattedMessage = template.format(title=this.title, city=this.city,neighborhood=this.neighborhood,rooms=this.rooms,floor=this.floor,area=this.area,price=this.price,description=this.description,contactName=this.contact_name,contact_number=this.contact_number,url=this.url,amneties_list=amneties_string,details_list=details)
+        return formattedMessage
+
 
     

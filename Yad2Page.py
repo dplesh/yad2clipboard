@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC, wait
 from selenium.webdriver.common.by import By
 
 from Yad2Post import Yad2Post
-import TargetSecurityTriggeredException
+from TargetSecurityTriggeredException import TargetSecurityTriggeredException
 
 FIREFOX_BINARY="C:\\Program Files\\Mozilla Firefox\\firefox.exe"
 USER_INTERACTION_DELAY = 200
