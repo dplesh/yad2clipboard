@@ -1,0 +1,2 @@
+class TargetSecurityTriggeredException(Exception):
+    pass
