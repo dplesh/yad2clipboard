@@ -24,7 +24,7 @@ class Yad2Post:
     contact_number = None
 
     details_list = []
-    amneties = []
+    amenities = []
 
 
 
@@ -35,7 +35,7 @@ class Yad2Post:
         
         this.load_basic_info()
         this.load_extended_details()
-        this.load_amneties()
+        this.load_amenities()
         this.load_seller_contact_info()
 
 
@@ -61,18 +61,18 @@ class Yad2Post:
             detail_value = detail.find_element_by_class_name("value").text
             this.details_list.append(f"{detail_title} - {detail_value}")
 
-    def load_amneties(this):
-        amneties_container = this.driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[2]/div[2]/div[1]/section[1]/div[3]/div")
-        amneties = amneties_container.find_elements_by_css_selector("[class^='info']")
+    def load_amenities(this):
+        amenities_container = this.driver.find_element_by_xpath("/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[2]/div[2]/div[1]/section[1]/div[3]/div")
+        amenities = amenities_container.find_elements_by_css_selector("[class^='info']")
 
         
         # y2i_check2
         # y2i_close
-        for amnety in amneties:
-            amnety_icon = amnety.find_element_by_tag_name("i")
-            if amnety_icon.get_attribute("class") == "y2i_check2":
-                amnety_text = amnety.find_element_by_tag_name("span").text
-                this.amneties.append(amnety_text)
+        for amenity in amenities:
+            amenity_icon = amenity.find_element_by_tag_name("i")
+            if amenity_icon.get_attribute("class") == "y2i_check2":
+                amenity_text = amenity.find_element_by_tag_name("span").text
+                this.amenities.append(amenity_text)
 
     def load_seller_contact_info(this):
         contactSellerButton = this.driver.find_element_by_xpath("//*[@id=\"lightbox_contact_seller_0\"]")
@@ -87,17 +87,17 @@ class Yad2Post:
             print ("Phone number unavailable.")
 
     def format_post_string(this, template):       
-        amneties_string = ', '.join(this.amneties)
+        amenities_string = ', '.join(this.amenities)
         details = '\r\n'.join(this.details_list)
-        formattedMessage = template.format(title=this.title, city=this.city,neighborhood=this.neighborhood,rooms=this.rooms,floor=this.floor,area=this.area,price=this.price,description=this.description,contactName=this.contact_name,contact_number=this.contact_number,url=this.url,amneties_list=amneties_string,details_list=details)
+        formattedMessage = template.format(title=this.title, city=this.city,neighborhood=this.neighborhood,rooms=this.rooms,floor=this.floor,area=this.area,price=this.price,description=this.description,contactName=this.contact_name,contact_number=this.contact_number,url=this.url,amenities_list=amenities_string,details_list=details)
         return formattedMessage
 
 
     def __str__(this):    
-        template = "{title}, {neighborhood} {city}\r\n{rooms}חדרים , {floor} קומה , {area} מ\"ר\r\n{details_list}\r\n{price}\r\n{description}\r\n{amneties_list}\r\n{contactName} - {contact_number}\r\n{url}"
-        amneties_string = ', '.join(this.amneties)
+        template = "{title}, {neighborhood} {city}\r\n{rooms}חדרים , {floor} קומה , {area} מ\"ר\r\n{details_list}\r\n{price}\r\n{description}\r\n{amenities_list}\r\n{contactName} - {contact_number}\r\n{url}"
+        amenities_string = ', '.join(this.amenities)
         details = '\r\n'.join(this.details_list)
-        formattedMessage = template.format(title=this.title, city=this.city,neighborhood=this.neighborhood,rooms=this.rooms,floor=this.floor,area=this.area,price=this.price,description=this.description,contactName=this.contact_name,contact_number=this.contact_number,url=this.url,amneties_list=amneties_string,details_list=details)
+        formattedMessage = template.format(title=this.title, city=this.city,neighborhood=this.neighborhood,rooms=this.rooms,floor=this.floor,area=this.area,price=this.price,description=this.description,contactName=this.contact_name,contact_number=this.contact_number,url=this.url,amenities_list=amenities_string,details_list=details)
         return formattedMessage
 
 

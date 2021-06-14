@@ -3,6 +3,6 @@
 {rooms}חדרים , {floor} קומה , {area} מ"ר
 {description}
 {details_list}
-{amneties_list}
+{amenities_list}
 {contactName} - {contact_number}
 {url}
