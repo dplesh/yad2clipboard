@@ -1,6 +1,5 @@
-from Statement import Statement
 from selenium.webdriver.common.by import By
-from Statement import Statement
+from .Statement import Statement # pylint: disable=import-error
 
 class SelectStatement(Statement):
     

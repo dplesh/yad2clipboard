@@ -1,5 +1,5 @@
 #from ElementSelector import ElementSelector
-from HtmlQuery import HtmlQuery
+from HtmlQuery.HtmlQuery import HtmlQuery # pylint: disable=import-error
 from random import randrange
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options

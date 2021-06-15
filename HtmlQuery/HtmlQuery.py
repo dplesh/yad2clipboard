@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
-from SelectStatement import SelectStatement
-from WhereStatement import WhereStatement
+from .SelectStatement import SelectStatement # pylint: disable=import-error
+from .WhereStatement import WhereStatement # pylint: disable=import-error
 
 class HtmlQuery:
 

@@ -1,4 +1,4 @@
-from Statement import Statement
+from .Statement import Statement # pylint: disable=import-error
 
 class WhereStatement(Statement):
     
