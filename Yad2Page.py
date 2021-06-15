@@ -14,10 +14,10 @@ class Yad2Page:
     url = None
     driver = None
 
-    def __init__(this, url):
-        this.url = url
+    def __init__(self, url):
+        self.url = url
 
-    def load(this,user_interact):
+    def load(self,user_interact):
         options = Options()
         options.headless = not user_interact
         options.binary = FIREFOX_BINARY
@@ -25,7 +25,7 @@ class Yad2Page:
 
 
         driver = webdriver.Firefox(options=options)
-        driver.get(this.url)
+        driver.get(self.url)
 
         show_up_timeout = USER_INTERACTION_DELAY if user_interact else 10
         try:
@@ -33,8 +33,8 @@ class Yad2Page:
         except:
             raise TargetSecurityTriggeredException()
 
-        this.driver = driver 
-        return Yad2Post(driver,this.url)
+        self.driver = driver 
+        return Yad2Post(driver,self.url)
 
-    def close(this):
-            this.driver.quit()
+    def close(self):
+            self.driver.quit()
