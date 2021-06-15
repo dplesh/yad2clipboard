@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC, wait
 from selenium.webdriver.common.by import By
 
 from Yad2Post import Yad2Post
-from TargetSecurityTriggeredException import TargetSecurityTriggeredException
+from TargetSecurityTriggeredError import TargetSecurityTriggeredError
 
 FIREFOX_BINARY="C:\\Program Files\\Mozilla Firefox\\firefox.exe"
 USER_INTERACTION_DELAY = 200
@@ -31,7 +31,7 @@ class Yad2Page:
         try:
             WebDriverWait(driver, show_up_timeout).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[1]/div/div/div[2]/div[2]/div/h4")))
         except:
-            raise TargetSecurityTriggeredException()
+            raise TargetSecurityTriggeredError()
 
         self.driver = driver 
         return Yad2Post(driver,self.url)

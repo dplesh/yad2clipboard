@@ -1,4 +1,4 @@
-from TargetSecurityTriggeredException import TargetSecurityTriggeredException
+from TargetSecurityTriggeredError import TargetSecurityTriggeredError
 import sys
 import pyperclip
 
@@ -12,7 +12,7 @@ if __name__ == "__main__":
     page = Yad2Page(url)
     try:
         post = page.load(False)
-    except TargetSecurityTriggeredException:
+    except TargetSecurityTriggeredError:
         post = page.load(True)
 
     template = None
