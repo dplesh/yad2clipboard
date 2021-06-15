@@ -7,7 +7,7 @@ from Yad2Page import Yad2Page
 if __name__ == "__main__":
 
     #url = sys.argv[1]
-    url = "https://www.yad2.co.il/s/c/w3nmgwao" # DEBUG
+    url = "https://www.yad2.co.il/s/c/wz8yzpwo" # DEBUG
 
     page = Yad2Page(url)
     try:
