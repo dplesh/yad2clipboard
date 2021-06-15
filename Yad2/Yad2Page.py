@@ -4,8 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC, wait
 from selenium.webdriver.common.by import By
 
-from Yad2Post import Yad2Post
-from TargetSecurityTriggeredError import TargetSecurityTriggeredError
+from .Yad2Post import Yad2Post # pylint: disable=import-error
+from .TargetSecurityTriggeredError import TargetSecurityTriggeredError # pylint: disable=import-error
 
 FIREFOX_BINARY="C:\\Program Files\\Mozilla Firefox\\firefox.exe"
 USER_INTERACTION_DELAY = 200

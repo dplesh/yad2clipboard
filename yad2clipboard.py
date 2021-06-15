@@ -1,8 +1,8 @@
-from TargetSecurityTriggeredError import TargetSecurityTriggeredError
 import sys
 import pyperclip
 
-from Yad2Page import Yad2Page
+from Yad2.Yad2Page import Yad2Page # pylint: disable=import-error
+from Yad2.TargetSecurityTriggeredError import TargetSecurityTriggeredError # pylint: disable=import-error
 
 if __name__ == "__main__":
 

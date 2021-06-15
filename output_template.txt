@@ -2,7 +2,7 @@
 {price}
 {rooms}חדרים , {floor} קומה , {area} מ"ר
 {description}
-{details_list}
+{details}
 {amenities_list}
 {contactName} - {contact_number}
 {url}

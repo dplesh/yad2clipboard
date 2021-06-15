@@ -48,7 +48,6 @@ class Yad2Post:
         self.price = HtmlQuery(self.driver).select(By.XPATH,        "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[1]/div/div/div[2]/div[2]/div/strong").execute()[0].text
         self.description = HtmlQuery(self.driver).select(By.XPATH,  "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[2]/div[2]/div[1]/section[1]/div[1]/div/div/div/p").execute()[0].text
         self.contact_name = HtmlQuery(self.driver).select(By.XPATH, "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[2]/div[2]/div[2]/div[1]/div[1]/span[2]").execute()[0].text
-        self.description = HtmlQuery(self.driver).select(By.XPATH,  "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[1]/div/div/div[2]/div[2]/div/span/span[2]").execute()[0].text
 
 
     def load_extended_details(self):        
@@ -99,12 +98,12 @@ class Yad2Post:
     def format_post_string(self, template):       
         amenities_string = ', '.join(self.amenities)
         details = '\r\n'.join([(f"{title} - {value}") for (title, value) in self.details])
-        formattedMessage = template.format(title=self.title, city=self.city,neighborhood=self.neighborhood,rooms=self.rooms,floor=self.floor,area=self.area,price=self.price,description=self.description,contactName=self.contact_name,contact_number=self.contact_number,url=self.url,amenities_list=amenities_string,details_list=details)
+        formattedMessage = template.format(title=self.title, city=self.city,neighborhood=self.neighborhood,rooms=self.rooms,floor=self.floor,area=self.area,price=self.price,description=self.description,contactName=self.contact_name,contact_number=self.contact_number,url=self.url,amenities_list=amenities_string,details=details)
         return formattedMessage
 
     def __str__(self):    
         template = "{title}, {neighborhood} {city}\r\n{rooms}חדרים , {floor} קומה , {area} מ\"ר\r\n{details}\r\n{price}\r\n{description}\r\n{amenities_list}\r\n{contactName} - {contact_number}\r\n{url}"
         amenities_string = ', '.join(self.amenities)
         details = '\r\n'.join([(f"{title} - {value}") for (title, value) in self.details])
-        formattedMessage = template.format(title=self.title, city=self.city,neighborhood=self.neighborhood,rooms=self.rooms,floor=self.floor,area=self.area,price=self.price,description=self.description,contactName=self.contact_name,contact_number=self.contact_number,url=self.url,amenities_list=amenities_string,details_list=details)
+        formattedMessage = template.format(title=self.title, city=self.city,neighborhood=self.neighborhood,rooms=self.rooms,floor=self.floor,area=self.area,price=self.price,description=self.description,contactName=self.contact_name,contact_number=self.contact_number,url=self.url,amenities_list=amenities_string,details=details)
         return formattedMessage
