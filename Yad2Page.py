@@ -29,7 +29,7 @@ class Yad2Page:
 
         show_up_timeout = USER_INTERACTION_DELAY if user_interact else 10
         try:
-            element = WebDriverWait(driver, show_up_timeout).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[1]/div/div/div[2]/div[2]/div/h4")))
+            WebDriverWait(driver, show_up_timeout).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[1]/div/div/div[2]/div[2]/div/h4")))
         except:
             raise TargetSecurityTriggeredException()
 

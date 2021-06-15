@@ -6,7 +6,6 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC, wait
 from selenium.webdriver.common.by import By
-from ElementTextValueExtractor import XpathElementTextValueExtractor
 import time
 
 class Yad2Post:
