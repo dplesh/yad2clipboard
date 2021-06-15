@@ -31,13 +31,13 @@ class Yad2Post:
     def __init__(self, driver, url):
         self.driver = driver
         self.url = url
-        self.get_basic_data()
+        self.load_basic_data()
 
         self.load_extended_details()
         self.load_amenities()
         self.load_seller_contact_info()
 
-    def get_basic_data(self):
+    def load_basic_data(self):
         
         self.title = HtmlQuery(self.driver).select(By.XPATH,        "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[1]/div/div/div[2]/div[2]/div/h4").execute()[0].text
         self.city = HtmlQuery(self.driver).select(By.XPATH,         "/html/body/div[2]/div[2]/div/main/div/div[3]/div[5]/div/div[1]/div/div/div[2]/div[2]/div/span/span[2]").execute()[0].text
