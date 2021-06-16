@@ -1,0 +1,10 @@
+{brand} {year}
+{model}
+{hand} יד , {displacement} סמ\"ק 
+{price}
+{location}
+{additional_details}
+{description}
+רמת זיהום אוויר - {air_pollution_level}
+{contact_name} - {contact_phone_number}
+{url}

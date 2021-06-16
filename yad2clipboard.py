@@ -2,12 +2,16 @@ import sys
 import pyperclip
 
 from Yad2.Yad2Page import Yad2Page # pylint: disable=import-error
+from Yad2.Yad2EstatePost import Yad2EstatePost
+from Yad2.Yad2VehiclePost import Yad2VehiclePost
 from Yad2.TargetSecurityTriggeredError import TargetSecurityTriggeredError # pylint: disable=import-error
 
 if __name__ == "__main__":
 
+
     #url = sys.argv[1]
-    url = "https://www.yad2.co.il/s/c/wz8yzpwo" # DEBUG
+    #url = "https://www.yad2.co.il/s/c/wz8yzpwo" # DEBUG Estate
+    url = "https://www.yad2.co.il/s/c/o39pta6o" # DEBUG Vehicle
 
     page = Yad2Page(url)
     try:
@@ -15,9 +19,16 @@ if __name__ == "__main__":
     except TargetSecurityTriggeredError:
         post = page.load(True)
 
-    template = None
-    with open('output_template.txt', 'r', encoding="utf8") as template_file:
-            template = template_file.read()
+    template_path = ""
+
+    if type(post) is Yad2VehiclePost:
+        template_path = "vehicle_output_template.txt"
+    elif type(post) is Yad2EstatePost:
+        template_path = "estate_output_template.txt"
+    
+    template = ""
+    with open(template_path,'r',encoding="utf8") as f:
+        template = f.read()
     
     post_str = post.format_post_string(template)
     

@@ -18,13 +18,13 @@ class SelectStatement(Statement):
         selection_function = None
 
         if selection_type == By.XPATH:
-            selection_function = root.find_element_by_xpath
+            selection_function = root.find_elements_by_xpath
         elif selection_type == By.CLASS_NAME:
             selection_function = root.find_elements_by_class_name
         elif selection_type == By.CSS_SELECTOR:
             selection_function = root.find_elements_by_css_selector
         elif selection_type == By.ID:
-            selection_function = root.find_element_by_id
+            selection_function = root.find_elements_by_id
         elif selection_type == By.TAG_NAME:
             selection_function = root.find_elements_by_tag_name
         

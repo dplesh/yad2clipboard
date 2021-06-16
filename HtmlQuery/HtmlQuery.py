@@ -1,3 +1,4 @@
+from HtmlQuery.ConstructStatement import ConstructStatement
 from selenium.webdriver.common.by import By
 from .SelectStatement import SelectStatement # pylint: disable=import-error
 from .WhereStatement import WhereStatement # pylint: disable=import-error
@@ -8,7 +9,7 @@ class HtmlQuery:
     current_roots = None
     root = None
 
-    def __init__(self,root, query_steps=[]):
+    def __init__(self,root=None, query_steps=[]):
         self.statements = query_steps
         self.root = root
 
@@ -23,6 +24,9 @@ class HtmlQuery:
         appended_stages = [*self.statements, WhereStatement(predicate)]
         return HtmlQuery(self.root, appended_stages)    
 
+    def construct(self, *args):            
+        appended_stages = appended_stages = [*self.statements, ConstructStatement(*args)]
+        return HtmlQuery(self.root, appended_stages)
 
     def execute(self):
             current_roots = [self.root]
