@@ -37,14 +37,18 @@ A template exists for each post type.
 
 ## Requirements
 Windows
+
 Python 3.9
+
 Python modules:
 ```
 pyperclip
 selenium
 ```
-To run headless selenium the module uses Firefox driver and Firefox binary (Chrome is currently unable run headless)
+To run headless selenium the module uses Firefox driver and Firefox binary (Chrome is currently unable run headless).
+
 Make sure after you install the Gecko (Firefox) driver you add it's directory to system path (on windows). Default installation directory is `C:\Program Files (x86)\Mozilla\GeckoDriver`
+
 As for the Firefox binary, the module expects it to be at the default installation directory of `C:\Program Files\Mozilla Firefox\firefox.exe`
 
 
